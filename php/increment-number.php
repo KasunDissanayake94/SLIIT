@@ -21,7 +21,14 @@ $result1 = mysqli_query($conn,$query1);
 $row = mysqli_fetch_assoc($result1);
 
 $oldTime=$row['current_Times'];
-if ($oldTime == 0){
+
+// when doctor  came
+if ($currentNo==-1){
+    $avgTime = 0;
+    $newTime=0;
+}
+// the moment doctor starts the session
+else if ($oldTime == 0){
     $avgTime = 0;
 }
 else{

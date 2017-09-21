@@ -80,7 +80,7 @@
           <div class="top-header">
             <div class="container">
             <div class="logo">
-              <a href="#"><img src="../images/logo.png" id="logo" title="doctor" /></a>
+              <a href="#"><img src="../images/logo.png" id="logo" title="doctor" style="width: 220px;height: 75px;" id="logo" /></a>
             </div>
             <!----start-top-nav---->
              <nav class="top-nav">
@@ -207,7 +207,7 @@
       var dataArray =[];
       var sid = "<?php echo $_GET['sid']; ?>";
       dataArray.push(sid);
-      dataArray.push(1);
+      dataArray.push(-1);
       var jsonString = JSON.stringify(dataArray);
       $.ajax({
           url: "../php/increment-number.php",
@@ -250,6 +250,19 @@
 	}
 	$('#start').click(function(){
 		$('#count').html(1);
+
+        var dataArray =[];
+        var sid = "<?php echo $_GET['sid']; ?>";
+        dataArray.push(sid);
+        dataArray.push(1);
+        var jsonString = JSON.stringify(dataArray);
+        $.ajax({
+            url: "../php/increment-number.php",
+            method: "post",
+            data:{data:jsonString},
+            cache: false,
+        });
+
 		$(this).attr("disabled", "disabled");
 		document.getElementById('tablecontainer').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].className +="backgreen";
 	});
