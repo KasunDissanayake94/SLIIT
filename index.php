@@ -5,11 +5,13 @@ require_once('php/dbcon.php');
 <html>
 	<head>
 		<title>MediQ-Home</title>
-		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="fonts/font-awesome.min.css"></script>
 		 <!-- Custom Theme files -->
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
+  		 <script src="js/bootstrap.js"></script>
    		 <!-- Custom Theme files -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -49,48 +51,14 @@ require_once('php/dbcon.php');
 			});
 		</script>
 		<!----//End-top-nav-script---->
-		<script>
-			 function showsignin(){
-				 $('#loginModal').modal('show');
-			 }
-	</script>
+		
 	</head>
 	<body>
 	<?php
 require_once('php/dbcon.php');
-//require_once('assets/signinmodal.php');
+require_once('assets/signinmodal.php');
 ?>
-<div class="modal fade" id="loginModal">
-         <div class="modal-dialog">
-         <div class="modal-content">   
-    <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h3 style="color: black;font-style: italic;font-weight:500"><img  src="images/skmlogo.jpg" id="loginicon"> Login</h3>
-          </div>
-          <div class="modal-body">
-            <form method="post" action="php/user.php" name="login_form">
-             <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="UserName" name="euname" id="username" required>
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-             <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" name="password">
-        <span class="glyphicon glyphicon-lock form-control-feedback" name="passwd" required></span>
-      </div>
-              
-              
-              <p><button type="submit" class="btn btn-primary">Sign in</button>
-                <a  style="color: black;font-style: italic;font-weight:500" href="#">Forgot Password?</a>
-              </p>
-            </form>
-          </div>
-          <div class="modal-footer">
-                <button type="button" class="btn btn-warning pull-right" data-dismiss="modal">Close</button>
-                
-              </div>
-			 </div>
-	  </div>
-	  </div>	
+	
 		<!----- start-header---->
 			<div id="home" class="header">
 					<div class="top-header" >
@@ -233,7 +201,7 @@ require_once('php/dbcon.php');
 			<!---- contact ---->
 			<div id="contact" class="contact">
 				<div class="map">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1600186.2619317076!2d-102.69625001610805!3d38.43306521805143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1404490159176" > </iframe>
+					
 					<div class="contact-info">
 						<div class="container">
 						<!---- contact-grids ---->
@@ -304,4 +272,8 @@ require_once('php/dbcon.php');
 			<!--- copy-right ---->
 	</body>
 </html>
-
+<script>
+			 function showsignin(){
+				 $('#loginModal').modal('show');
+			 }
+	</script>

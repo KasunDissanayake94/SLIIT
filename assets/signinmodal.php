@@ -3,7 +3,7 @@
          <div class="modal-content">   
     <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h3 style="color: black;font-style: italic;font-weight:500"><img  src="images/skmlogo.jpg" id="loginicon"> Login</h3>
+				<h3 style="color: black;font-style: italic;font-weight:500"><img  src="images/logo.png" style="width: 120px;height: 50px;"> Signin</h3>
           </div>
           <div class="modal-body">
             <form method="post" action="php/user.php" name="login_form">
