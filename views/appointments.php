@@ -80,12 +80,12 @@
           <div class="top-header">
             <div class="container">
             <div class="logo">
-              <a href="#"><img src="../images/logo.png" id="logo" style="width: 220px;height: 75px;" title="doctor" /></a>
+              <a href="#"><img src="../images/logo.png" id="logo" title="doctor" /></a>
             </div>
             <!----start-top-nav---->
              <nav class="top-nav">
               <ul class="top-nav">
-                <li><a href="../index.php"  id="signout">Sign Out</a></li>
+                <li><a href="../index.php"  id="signout">Signout</a></li>
                 
               </ul>
               <a href="#" id="pull"><img src="../images/menu-icon.png" title="menu" /></a>
@@ -103,7 +103,7 @@
               <div class="row">
                <div class="col-md-6">
                <button class="btn btn-primary pull-right" onClick="nextPatient();" style="margin-left: 10px;margin-top: 30px;">Next Number</button>
-               <button class="btn btn-warning pull-right" style="margin-top: 30px;" onClick="pause();" id="pausebtn">Pause Session</button></div>
+               <button class="btn btn-warning pull-right" style="margin-top: 30px; width: 140px" id="pausebtn">Pause Session</button></div>
                 <div class="col-md-4">
                   
                   <div style="border: 2px solid red;outline: green thick;height: 100px; width: 150px;"><center>Current Number</center>
@@ -120,7 +120,7 @@
 
     <!-- Page Content -->
     <div class="container">
-      <div class = "row" style="margin-top: 20px;">
+      <div class = "row" id="tablecontainer" style="margin-top: 20px;">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -130,6 +130,7 @@
                     <th>Contact Number</th>
                 </tr>
             </thead>
+            <tbody>
         <?php 
           $sid = $_GET['sid'];
           $query4 = "SELECT * FROM appointment WHERE session_ID = '$sid'";
@@ -148,18 +149,18 @@
         ?>       
               
           
-           <tbody>
-             <td><?php echo $rows['app_No']; ?></td>
-             <td><?php echo $rows['ref_No']; ?></td>
+           
+             <tr><td><?php echo $rows['app_No']; ?></td>
+             <td><?php echo $rows['ref_No'];?></td>
              <td><?php echo $pname; ?></td>
-             <td><?php echo $rows['patient_Phone']; ?></td>
-           </tbody>
+             <td><?php echo $rows['patient_Phone']; ?></td></tr>
+           
 
 
           
 
         <?php } ?>
-
+</tbody>
           </table>
       </div>
       <!-- /.row -->
@@ -181,6 +182,7 @@
 
 
 <script>
+	document.getElementById('tablecontainer').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].className +="backgreen";
   $(document).ready(function()
   {
     $('#search').keyup(function()
@@ -216,11 +218,13 @@
   });
 	function nextPatient(){
 		
-
-		var currentno=document.getElementById('count').textContent;
 		
+		var currentno=document.getElementById('count').textContent;
+		document.getElementById('tablecontainer').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[currentno-1].className -="backgreen";
 		currentno++;
-
+		
+		
+		document.getElementById('tablecontainer').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[currentno-1].className +="backgreen";
     /*var num = currentno.toString();
     var loc = "increment.php?id=";
     var loc2 = "<?php echo $_GET['sid']; ?>&no=";
@@ -243,7 +247,18 @@
             cache: false,
         });
 	}
-	function pause(){
+	 
+	$("#pausebtn").click(function(){
+		
+		if(document.getElementById('pausebtn').innerHTML=="Pause Session"){
 		document.getElementById('pausebtn').innerHTML="Resume session";
-	}
+		$(this).removeClass('btn-warning');	
+		$(this).addClass('btn-success');
+		}
+		else{
+		document.getElementById('pausebtn').innerHTML="Pause Session";
+			$(this).removeClass('btn-success');	
+			$(this).addClass('btn-warning');
+		}
+	});
 </script>
