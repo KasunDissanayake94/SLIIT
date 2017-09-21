@@ -103,11 +103,12 @@
               <div class="row">
                <div class="col-md-6">
                <button class="btn btn-primary pull-right" onClick="nextPatient();" style="margin-left: 10px;margin-top: 30px;">Next Number</button>
-               <button class="btn btn-warning pull-right" style="margin-top: 30px; width: 140px" id="pausebtn">Pause Session</button></div>
+               <button class="btn btn-warning pull-right" style="margin-top: 30px; width: 140px" id="pausebtn">Pause Session</button>
+               <button class="btn btn-success pull-right" id="start" style="margin-right: 10px;margin-top: 30px;">Start Session</button></div>
                 <div class="col-md-4">
                   
                   <div style="border: 2px solid red;outline: green thick;height: 100px; width: 150px;"><center>Current Number</center>
-                  <center><label id="count" style="font-size: 40px;">1</label></center></div>
+                  <center><label id="count" style="font-size: 40px;">0</label></center></div>
                 
                 </div>
               </div>
@@ -120,7 +121,7 @@
 
     <!-- Page Content -->
     <div class="container">
-      <div class = "row" style="margin-top: 20px;">
+      <div class = "row" id="tablecontainer" style="margin-top: 20px;">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -130,6 +131,7 @@
                     <th>Contact Number</th>
                 </tr>
             </thead>
+            <tbody>
         <?php 
           $sid = $_GET['sid'];
           $query4 = "SELECT * FROM appointment WHERE session_ID = '$sid'";
@@ -148,18 +150,18 @@
         ?>       
               
           
-           <tbody>
-             <td><?php echo $rows['app_No']; ?></td>
-             <td><?php echo $rows['ref_No']; ?></td>
+           
+             <tr><td><?php echo $rows['app_No']; ?></td>
+             <td><?php echo $rows['ref_No'];?></td>
              <td><?php echo $pname; ?></td>
-             <td><?php echo $rows['patient_Phone']; ?></td>
-           </tbody>
+             <td><?php echo $rows['patient_Phone']; ?></td></tr>
+           
 
 
           
 
         <?php } ?>
-
+</tbody>
           </table>
       </div>
       <!-- /.row -->
@@ -181,6 +183,7 @@
 
 
 <script>
+	
   $(document).ready(function()
   {
     $('#search').keyup(function()
@@ -199,15 +202,30 @@
                   $('#livesearch').html(data);
                 }
               });
-        
       });
+
+      var dataArray =[];
+      var sid = "<?php echo $_GET['sid']; ?>";
+      dataArray.push(sid);
+      dataArray.push(1);
+      var jsonString = JSON.stringify(dataArray);
+      $.ajax({
+          url: "../php/increment-number.php",
+          method: "post",
+          data:{data:jsonString},
+          cache: false,
+      });
+
   });
 	function nextPatient(){
 		
-
-		var currentno=document.getElementById('count').textContent;
 		
+		var currentno=document.getElementById('count').textContent;
+		document.getElementById('tablecontainer').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[currentno-1].className -="backgreen";
 		currentno++;
+		
+		
+		document.getElementById('tablecontainer').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[currentno-1].className +="backgreen";
     /*var num = currentno.toString();
     var loc = "increment.php?id=";
     var loc2 = "<?php echo $_GET['sid']; ?>&no=";
@@ -217,12 +235,31 @@
 
 		var n = currentno.toString();
 		$('#count').html(n);
+
+        var dataArray =[];
+        var sid = "<?php echo $_GET['sid']; ?>";
+        dataArray.push(sid);
+        dataArray.push(currentno);
+        var jsonString = JSON.stringify(dataArray);
+        $.ajax({
+            url: "../php/increment-number.php",
+            method: "post",
+            data:{data:jsonString},
+            cache: false,
+        });
 	}
+	$('#start').click(function(){
+		$('#count').html(1);
+		$(this).attr("disabled", "disabled");
+		document.getElementById('tablecontainer').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].className +="backgreen";
+	});
+	 
 	$("#pausebtn").click(function(){
+		
 		if(document.getElementById('pausebtn').innerHTML=="Pause Session"){
 		document.getElementById('pausebtn').innerHTML="Resume session";
 		$(this).removeClass('btn-warning');	
-			$(this).addClass('btn-success');
+		$(this).addClass('btn-success');
 		}
 		else{
 		document.getElementById('pausebtn').innerHTML="Pause Session";
