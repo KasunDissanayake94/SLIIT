@@ -105,7 +105,6 @@
                     <th>Session ID</th>
                     <th>Date</th>
                     <th>Time</th>
-                    <th></th>
                 </tr>
             </thead>
         <?php 
@@ -120,13 +119,9 @@
               
           
            <tbody>
-             <tr><?php echo "<a href='sessions.php?id=".$rows['session_ID']."'>";?>
              <td><?php echo $rows['session_ID']; ?></td>
              <td><?php echo $rows['session_Date']; ?></td>
              <td><?php echo $rows['session_Time']; ?></td>
-             <td><center><a href="appointments.php"><button class="btn btn-success">PROCEED</button></a></center></td>
-             </a>
-             </tr>
            </tbody>
 
 
