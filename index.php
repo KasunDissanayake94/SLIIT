@@ -5,11 +5,13 @@ require_once('php/dbcon.php');
 <html>
 	<head>
 		<title>MediQ-Home</title>
-		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="fonts/font-awesome.min.css"></script>
 		 <!-- Custom Theme files -->
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
+  		 <script src="js/bootstrap.js"></script>
    		 <!-- Custom Theme files -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
