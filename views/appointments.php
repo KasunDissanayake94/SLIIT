@@ -199,8 +199,20 @@
                   $('#livesearch').html(data);
                 }
               });
-        
       });
+
+      var dataArray =[];
+      var sid = "<?php echo $_GET['sid']; ?>";
+      dataArray.push(sid);
+      dataArray.push(1);
+      var jsonString = JSON.stringify(dataArray);
+      $.ajax({
+          url: "../php/increment-number.php",
+          method: "post",
+          data:{data:jsonString},
+          cache: false,
+      });
+
   });
 	function nextPatient(){
 		
@@ -208,6 +220,7 @@
 		var currentno=document.getElementById('count').textContent;
 		
 		currentno++;
+
     /*var num = currentno.toString();
     var loc = "increment.php?id=";
     var loc2 = "<?php echo $_GET['sid']; ?>&no=";
@@ -217,6 +230,18 @@
 
 		var n = currentno.toString();
 		$('#count').html(n);
+
+        var dataArray =[];
+        var sid = "<?php echo $_GET['sid']; ?>";
+        dataArray.push(sid);
+        dataArray.push(currentno);
+        var jsonString = JSON.stringify(dataArray);
+        $.ajax({
+            url: "../php/increment-number.php",
+            method: "post",
+            data:{data:jsonString},
+            cache: false,
+        });
 	}
 	function pause(){
 		document.getElementById('pausebtn').innerHTML="Resume session";
