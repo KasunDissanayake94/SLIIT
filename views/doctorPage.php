@@ -1,5 +1,5 @@
 <?php
-  require '../dbconfig/config.php';
+  require '../php/dbcon.php';
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +102,7 @@
           <div class="top-header">
             <div class="container">
             <div class="logo">
-              <a href="#"><img src="../images/logo.png" title="doctor" /></a>
+              <a href="#"><img src="../images/logo.png" id="logo" title="doctor" /></a>
             </div>
             <!----start-top-nav---->
              <nav class="top-nav">
@@ -113,7 +113,7 @@
                 <li><a href="#team" class="scroll">our team</a></li>
                 <li><a href="#contact" class="scroll">Contact</a></li>
               </ul>
-              <a href="#" id="pull"><img src="images/menu-icon.png" title="menu" /></a>
+              <a href="#" id="pull"><img src="../images/menu-icon.png" title="menu" /></a>
             </nav>
             <div class="clearfix"> </div>
           </div>
@@ -130,9 +130,21 @@
       </h1>
 
       <div class="row">
+
+        <?php 
+          $query1 = "SELECT * FROM doctor";
+          $result1 = mysqli_query($conn,$query1);
+
+          while($rows = mysqli_fetch_assoc($result1))
+          {
+        ?>       
+              
+          
+
+        
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="#"><img class="card-img-top" src=<?php echo $rows['imageLink']; ?> alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="#">Project One</a>
@@ -141,6 +153,10 @@
             </div>
           </div>
         </div>
+
+        <?php } ?>
+
+        <!--  
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -196,6 +212,7 @@
             </div>
           </div>
         </div>
+      -->
       </div>
       <!-- /.row -->
 
@@ -223,21 +240,6 @@
           </a>
         </li>
       </ul>
-
-      <?php 
-          $nic = "637411111V";
-          $sqlimage = "SELECT imageLink FROM doctor where doc_NIC = '$nic'";
-          $imageresult1 = mysqli_query($con,$sqlimage);
-
-          while($rows = mysqli_fetch_assoc($imageresult1))
-          {       
-              $image = $rows['imageLink'];
-              //echo $image;
-              echo "<img src=".$image." alt='Image'/>";
-          }
-
-      ?>
-
     </div>
     <!-- /.container -->
 
