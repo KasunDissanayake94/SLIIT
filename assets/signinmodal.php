@@ -6,18 +6,18 @@
 				<h3 style="color: black;font-style: italic;font-weight:500"><img  src="images/logo.png" style="width: 120px;height: 50px;"> Signin</h3>
           </div>
           <div class="modal-body">
-            <form method="post" action="php/user.php" name="login_form">
+            <form method="post" action="php/login_check.php" name="login_form">
              <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="UserName" name="euname" id="username" required>
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="Username" name="uname">
+        
       </div>
              <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Password" name="password">
-        <span class="glyphicon glyphicon-lock form-control-feedback" name="passwd" required></span>
+        
       </div>
               
               
-              <p><button type="submit" class="btn btn-primary">Sign in</button>
+              <p><button type="submit" class="btn btn-primary" onClick="loginCheck();">Sign in</button>
                 <a  style="color: black;font-style: italic;font-weight:500" href="#">Forgot Password?</a>
               </p>
             </form>
@@ -29,3 +29,4 @@
 			 </div>
 	  </div>
 	  </div>
+	  

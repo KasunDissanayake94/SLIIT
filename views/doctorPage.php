@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>3 Col Portfolio - Start Bootstrap Template</title>
+	<script src="../fonts/font-awesome.min.css"></script>
+    <title>MediQ-nurse</title>
 
     <script src="../fonts/font-awesome.min.css" rel='stylesheet' type='text/css'></script>
 
@@ -135,11 +135,8 @@
             <!----start-top-nav---->
              <nav class="top-nav">
               <ul class="top-nav">
-                <li class="active"><a href="#home" class="scroll">Home </a></li>
-                <li><a href="#about" class="scroll">About us</a></li>
-                <li><a href="#services" class="scroll">our services</a></li>
-                <li><a href="#team" class="scroll">our team</a></li>
-                <li><a href="#contact" class="scroll">Contact</a></li>
+                <li><a href="../index.php"  id="signout">Signout</a></li>
+                
               </ul>
               <a href="#" id="pull"><img src="../images/menu-icon.png" title="menu" /></a>
             </nav>
@@ -153,9 +150,9 @@
     <div class="container">
 
       <!-- Page Heading -->
-      <h1 class="my-4">Page Heading
-        <small>Secondary Text</small>
-      </h1>
+      <h3 class="my-4">Select Doctor to load sessions
+        
+      </h3>
 
       
         <div class="row">
@@ -291,12 +288,6 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-      </div>
-      <!-- /.container -->
-    </footer>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
