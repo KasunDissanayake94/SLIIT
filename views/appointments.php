@@ -23,7 +23,7 @@
     <!-- Custom styles for this template -->
     <!--<link href="../css/3-col-portfolio.css" rel="stylesheet">-->
 
-    <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="../css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="../js/jquery.min.js"></script>
      <!-- Custom Theme files -->
@@ -80,10 +80,13 @@
           <div class="top-header">
             <div class="container">
               <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                  <center>
-                  <label style="border: 2px solid red;outline: green thick;height: 100px; width: 150px;vertical-align: middle;">Current Number</label>
-                  </center>
+               <div class="col-md-5">
+               	<button class="btn btn-primary pull-right" style="margin-left: 10px;margin-top: 30px;">Next Number</button>
+               <button class="btn btn-warning pull-right" style="margin-top: 30px;">Pause Session</button></div>
+                <div class="col-md-4">
+                  
+                  <label style="border: 2px solid red;outline: green thick;height: 100px; width: 150px;">Current Number</label>
+                
                 </div>
               </div>
             
