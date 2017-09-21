@@ -225,8 +225,13 @@ require_once('assets/signinmodal.php');
 									<input type="submit" value="SEND MESSAGE" />
 								</form>
 							</div>
-							<div class="clearfix"> </div>
+							<br>
+							<br>
+							
+								
+								<div class="clearfix"> </div>
 						</div>
+						<div class="copy-right">(c) TryCatch++ 2017. All rights reserved.</div>
 						<!---- contact-grids ---->
 					</div>
 					</div>
