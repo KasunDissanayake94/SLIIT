@@ -1,0 +1,45 @@
+.modal-header {
+    padding: 10px;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+}
+img .logo-image {
+   width: 120px;
+    height: 50px;
+}
+
+.modal-dialog{
+    width: 30%;
+}
+
+.btn-primary{
+    float : right;
+}
+
+.modal-content {
+    background: linear-gradient(#81d4fa,#e1f5fe);
+    /*background-image: url("../images/logback.jpg");*/
+    border: 1px solid #bdc3c7;
+    border-radius: 0px;
+    outline: 0;
+}
+
+.my-lg-button{
+    height: 45px;
+    width:100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color : white;
+    border-color: #fff;
+    background: linear-gradient(#0288d1,#01579b);
+}
+
+a{
+    text-align: center;
+}
+
+.form-group input{
+    margin-top: 5px;
+    border-color: #81d4fa;
+}

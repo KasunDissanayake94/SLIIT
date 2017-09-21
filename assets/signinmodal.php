@@ -1,11 +1,12 @@
+<link href="css/loginstyle.css" rel='stylesheet' type='text/css' />
+
 <div class="modal fade" id="loginModal" >
          <div class="modal-dialog">
          <div class="modal-content">   
-    <div class="modal-header" style="background: linear-gradient(to bottom, #33ccff 0%, #fbffc0 100%);">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h3 style="color: black;font-style: italic;font-weight:500"><img  src="images/logo.png" style="width: 120px;height: 50px;"> Sign in</h3>
+    <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><img  src="images/logo.png" style="width: 220px;height: 75px;">
           </div>
-          <div class="modal-body"   style="background-color: #cad9fb">
+          <div class="modal-body">
             <form method="post" action="php/login_check.php" name="login_form">
              <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Username" name="uname">
@@ -17,15 +18,11 @@
       </div>
               
               
-              <p><button type="submit" class="btn btn-primary" onClick="loginCheck();">Sign in</button>
-                <a  style="color: black;font-style: italic;font-weight:500" href="#">Forgot Password?</a>
+              <p><button type="submit" class="btn my-lg-button" onClick="loginCheck();">Sign in</button>
+                <a href="#">Forgot Password?</a>
               </p>
             </form>
           </div>
-          <div class="modal-footer" style="background-color:#cad9fb">
-                <button type="button" class="btn btn-warning pull-right" data-dismiss="modal">Close</button>
-                
-              </div>
 			 </div>
 	  </div>
 	  </div>

@@ -208,12 +208,12 @@
 		var currentno=document.getElementById('count').textContent;
 		
 		currentno++;
-    //var num = currentno.toString();
-    //var loc = "increment.php?id=";
-    //var loc2 = "<?php //echo $_GET['sid']; ?>&no=";
-    //loc2 = loc2.concat(num);
-    //loc = loc.concat(loc2);
-		//window.location=loc;
+    /*var num = currentno.toString();
+    var loc = "increment.php?id=";
+    var loc2 = "<?php echo $_GET['sid']; ?>&no=";
+    loc2 = loc2.concat(num);
+    loc = loc.concat(loc2);
+		window.location=loc;*/
 
 		var n = currentno.toString();
 		$('#count').html(n);
