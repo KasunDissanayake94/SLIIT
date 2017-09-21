@@ -1292,3 +1292,11 @@ div.slide-text-info {
 .backgreen{
 	background-color: #CDFFC9;
 }
+
+.top-header{
+	background : linear-gradient(#e3f2fd,#ffffff,#e3f2fd)
+}
+
+.callbacks_container{
+	margin-top: 100px;
+}

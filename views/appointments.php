@@ -85,7 +85,7 @@
             <!----start-top-nav---->
              <nav class="top-nav">
               <ul class="top-nav">
-                <li><a href="../index.php"  id="signout">Signout</a></li>
+                <li><a href="../index.php"  id="signout">Sign Out</a></li>
                 
               </ul>
               <a href="#" id="pull"><img src="../images/menu-icon.png" title="menu" /></a>

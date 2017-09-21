@@ -73,7 +73,7 @@ require_once('assets/signinmodal.php');
 	
 		<!----- start-header---->
 			<div id="home" class="header">
-					<div class="top-header" >
+					<div class="top-header navbar-fixed-top" >
 					
 						<div class="container">
 						<div class="logo">
@@ -165,6 +165,7 @@ require_once('assets/signinmodal.php');
 			<!---- about ---->
 			<div id="about" class="about">
 				<div class="container">
+                    <br><br><br>
 					<div class="header about-header text-center">
 						<h2>about us</h2>
 						<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
@@ -295,6 +296,7 @@ require_once('assets/signinmodal.php');
 					<div class="contact-info">
 						<div class="container">
 						<!---- contact-grids ---->
+                            <br><br><br>
 						<div class="contact-grids">
 							<h3>contact us</h3>
 							<div class="col-md-5 contact-grid-left">
