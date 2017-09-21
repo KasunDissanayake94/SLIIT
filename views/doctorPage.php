@@ -14,6 +14,7 @@
 
     <title>3 Col Portfolio - Start Bootstrap Template</title>
 
+     <link href="../css/searchBar.css" rel='stylesheet' type='text/css' />
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -129,6 +130,23 @@
         <small>Secondary Text</small>
       </h1>
 
+      
+        <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                  <div id="imaginary_container"> 
+                      <div class="input-group stylish-input-group">
+                          <input type="text" class="form-control"  placeholder="Search" >
+                          <span class="input-group-addon">
+                              <button type="submit">
+                                  <span class="glyphicon glyphicon-search"></span>
+                              </button>  
+                          </span>
+                      </div>
+                  </div>
+              </div>
+        </div>
+      
+
       <div class="row">
 
         <?php 
@@ -147,9 +165,10 @@
             <a href="#"><img class="card-img-top" src=<?php echo $rows['imageLink']; ?> alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Project One</a>
+                <a href="#"><?php echo $rows['doc_Name']; ?></a>
               </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+              <!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>-->
+              <p class="card-text"><?php echo $rows['doc_Spec']; ?></p>
             </div>
           </div>
         </div>
