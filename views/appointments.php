@@ -120,7 +120,7 @@
 
     <!-- Page Content -->
     <div class="container">
-      <div class = "row" style="margin-top: 20px;">
+      <div class = "row" id="tablecontainer" style="margin-top: 20px;">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -130,6 +130,7 @@
                     <th>Contact Number</th>
                 </tr>
             </thead>
+            <tbody>
         <?php 
           $sid = $_GET['sid'];
           $query4 = "SELECT * FROM appointment WHERE session_ID = '$sid'";
@@ -148,18 +149,18 @@
         ?>       
               
           
-           <tbody>
-             <td><?php echo $rows['app_No']; ?></td>
-             <td><?php echo $rows['ref_No']; ?></td>
+           
+             <tr><td><?php echo $rows['app_No']; ?></td>
+             <td><?php echo $rows['ref_No'];?></td>
              <td><?php echo $pname; ?></td>
-             <td><?php echo $rows['patient_Phone']; ?></td>
-           </tbody>
+             <td><?php echo $rows['patient_Phone']; ?></td></tr>
+           
 
 
           
 
         <?php } ?>
-
+</tbody>
           </table>
       </div>
       <!-- /.row -->
@@ -181,6 +182,7 @@
 
 
 <script>
+	document.getElementById('tablecontainer').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].className +="backgreen";
   $(document).ready(function()
   {
     $('#search').keyup(function()
@@ -204,10 +206,13 @@
   });
 	function nextPatient(){
 		
-
-		var currentno=document.getElementById('count').textContent;
 		
+		var currentno=document.getElementById('count').textContent;
+		document.getElementById('tablecontainer').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[currentno-1].className -="backgreen";
 		currentno++;
+		
+		
+		document.getElementById('tablecontainer').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[currentno-1].className +="backgreen";
     /*var num = currentno.toString();
     var loc = "increment.php?id=";
     var loc2 = "<?php echo $_GET['sid']; ?>&no=";
@@ -218,11 +223,13 @@
 		var n = currentno.toString();
 		$('#count').html(n);
 	}
+	 
 	$("#pausebtn").click(function(){
+		
 		if(document.getElementById('pausebtn').innerHTML=="Pause Session"){
 		document.getElementById('pausebtn').innerHTML="Resume session";
 		$(this).removeClass('btn-warning');	
-			$(this).addClass('btn-success');
+		$(this).addClass('btn-success');
 		}
 		else{
 		document.getElementById('pausebtn').innerHTML="Pause Session";
