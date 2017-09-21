@@ -23,7 +23,7 @@
     <!-- Custom styles for this template -->
     <!--<link href="../css/3-col-portfolio.css" rel="stylesheet">-->
 
-    <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="../css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="../js/jquery.min.js"></script>
      <!-- Custom Theme files -->
@@ -80,12 +80,12 @@
           <div class="top-header">
             <div class="container">
             <div class="logo">
-              <a href="#"><img src="../images/logo.png" id="logo" style="width: 220px;height: 75px;" title="doctor" /></a>
+              <a href="#"><img src="../images/logo.png" id="logo" title="doctor" /></a>
             </div>
             <!----start-top-nav---->
              <nav class="top-nav">
               <ul class="top-nav">
-                <li><a href="../index.php"  id="signout">Sign Out</a></li>
+                <li><a href="../index.php"  id="signout">Signout</a></li>
                 
               </ul>
               <a href="#" id="pull"><img src="../images/menu-icon.png" title="menu" /></a>
@@ -101,10 +101,14 @@
           <div class="top-header">
             <div class="container">
               <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                  <center>
-                  <label style="border: 2px solid red;outline: green thick;height: 100px; width: 150px;vertical-align: middle;">Current Number</label>
-                  </center>
+               <div class="col-md-6">
+               <button class="btn btn-primary pull-right" onClick="nextPatient();" style="margin-left: 10px;margin-top: 30px;">Next Number</button>
+               <button class="btn btn-warning pull-right" style="margin-top: 30px; width: 140px" id="pausebtn">Pause Session</button></div>
+                <div class="col-md-4">
+                  
+                  <div style="border: 2px solid red;outline: green thick;height: 100px; width: 150px;"><center>Current Number</center>
+                  <center><label id="count" style="font-size: 40px;">1</label></center></div>
+                
                 </div>
               </div>
             
@@ -198,25 +202,32 @@
         
       });
   });
-
 	function nextPatient(){
 		
 
 		var currentno=document.getElementById('count').textContent;
 		
 		currentno++;
-    var num = currentno.toString();
+    /*var num = currentno.toString();
     var loc = "increment.php?id=";
     var loc2 = "<?php echo $_GET['sid']; ?>&no=";
     loc2 = loc2.concat(num);
     loc = loc.concat(loc2);
-		window.location=loc;
+		window.location=loc;*/
 
 		var n = currentno.toString();
 		$('#count').html(n);
 	}
-	function pause(){
+	$("#pausebtn").click(function(){
+		if(document.getElementById('pausebtn').innerHTML=="Pause Session"){
 		document.getElementById('pausebtn').innerHTML="Resume session";
-	}
-
+		$(this).removeClass('btn-warning');	
+			$(this).addClass('btn-success');
+		}
+		else{
+		document.getElementById('pausebtn').innerHTML="Pause Session";
+			$(this).removeClass('btn-success');	
+			$(this).addClass('btn-warning');
+		}
+	});
 </script>
