@@ -162,7 +162,7 @@
               <div class="col-sm-6 col-sm-offset-3">
                   <div id="imaginary_container"> 
                       <div class="input-group stylish-input-group">
-                          <input type="text" class="form-control"  placeholder="Search" onkeyup="showResult(this.value)" >
+                          <input type="text" class="form-control"  placeholder="Search" onkeyup="showResult(this.value)" name="search" id="search" >
                           <span class="input-group-addon">
                               <button type="submit">
                                   <!--<i class="fa fa-search" aria-hidden="true"></i>-->
@@ -306,3 +306,28 @@
   </body>
 
 </html>
+
+
+<script>
+  $(document).ready(function()
+  {
+    $('#search').keyup(function()
+      {
+        var txt = $(this).val();
+        var txt2 = "";
+
+            $.ajax(
+              {
+                url:"fetch.php",
+                method:"post",
+                data:{searchData:txt},
+                dataType:"text",
+                success:function(data)
+                {
+                  $('#livesearch').html(data);
+                }
+              });
+        
+      });
+  });
+</script>
