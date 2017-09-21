@@ -124,7 +124,7 @@
              <td><?php echo $rows['session_ID']; ?></td>
              <td><?php echo $rows['session_Date']; ?></td>
              <td><?php echo $rows['session_Time']; ?></td>
-             <td><center><a href="appointments.php"><button class="btn btn-success">PROCEED</button></a></center></td>
+             <td><center><?php echo "<a href='appointments.php?id=".$rows['session_ID']."'>"; ?><button class="btn btn-success">PROCEED</button></a></center></td>
              </a>
              </tr>
            </tbody>
