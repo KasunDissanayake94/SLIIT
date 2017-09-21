@@ -1,17 +1,17 @@
-<div class="modal fade" id="loginModal">
+<div class="modal fade" id="loginModal" >
          <div class="modal-dialog">
          <div class="modal-content">   
-    <div class="modal-header">
+    <div class="modal-header" style="background: linear-gradient(to bottom, #33ccff 0%, #fbffc0 100%);">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				<h3 style="color: black;font-style: italic;font-weight:500"><img  src="images/logo.png" style="width: 120px;height: 50px;"> Signin</h3>
           </div>
-          <div class="modal-body">
+          <div class="modal-body"   style="background-color: #cad9fb">
             <form method="post" action="php/login_check.php" name="login_form">
              <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Username" name="uname">
         
       </div>
-             <div class="form-group has-feedback">
+             <div class="form-group has-feedback" >
         <input type="password" class="form-control" placeholder="Password" name="password">
         
       </div>
@@ -22,7 +22,7 @@
               </p>
             </form>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer" style="background-color:#cad9fb">
                 <button type="button" class="btn btn-warning pull-right" data-dismiss="modal">Close</button>
                 
               </div>
