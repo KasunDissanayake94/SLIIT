@@ -97,16 +97,17 @@
     <!----- //End-header---->
 
     <!----- start-header---->
-      <div id="home" class="header">
+      <div>
           <div class="top-header">
             <div class="container">
               <div class="row">
-               <div class="col-md-5">
-               	<button class="btn btn-primary pull-right" style="margin-left: 10px;margin-top: 30px;">Next Number</button>
-               <button class="btn btn-warning pull-right" style="margin-top: 30px;">Pause Session</button></div>
+               <div class="col-md-6">
+               	<button class="btn btn-primary pull-right" onClick="nextPatient();" style="margin-left: 10px;margin-top: 30px;">Next Number</button>
+               <button class="btn btn-warning pull-right" style="margin-top: 30px;" onClick="pause();" id="pausebtn">Pause Session</button></div>
                 <div class="col-md-4">
                   
-                  <label style="border: 2px solid red;outline: green thick;height: 100px; width: 150px;">Current Number</label>
+                  <div style="border: 2px solid red;outline: green thick;height: 100px; width: 150px;"><center>Current Number</center>
+                  <center><label id="count" style="font-size: 40px;">1</label></center></div>
                 
                 </div>
               </div>
@@ -201,4 +202,16 @@
         
       });
   });
+	function nextPatient(){
+		
+		var currentno=document.getElementById('count').textContent;
+		
+		currentno++;
+		
+		var n = currentno.toString();
+		$('#count').html(n);
+	}
+	function pause(){
+		document.getElementById('pausebtn').innerHTML="Resume session";
+	}
 </script>
