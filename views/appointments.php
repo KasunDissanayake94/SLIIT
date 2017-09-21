@@ -79,17 +79,14 @@
       <div id="home" class="header">
           <div class="top-header">
             <div class="container">
-            <div class="logo">
-              <a href="#"><img src="../images/logo.png" id="logo" title="doctor" /></a>
-            </div>
-            <!----start-top-nav---->
-             <nav class="top-nav">
-              <ul class="top-nav">
-                <li><a href="../index.php"  id="signout">Signout</a></li>
-                
-              </ul>
-              <a href="#" id="pull"><img src="../images/menu-icon.png" title="menu" /></a>
-            </nav>
+              <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                  <center>
+                  <label style="border: 2px solid red;outline: green thick;height: 100px; width: 150px;vertical-align: middle;">Current Number</label>
+                  </center>
+                </div>
+              </div>
+            
             <div class="clearfix"> </div>
           </div>
         </div>
@@ -102,26 +99,35 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Session ID</th>
-                    <th>Date</th>
-                    <th>Time</th>
+                    <th>Appointment Number</th>
+                    <th>Reference Number</th>
+                    <th>Patient Name</th>
+                    <th>Contact Number</th>
                 </tr>
             </thead>
         <?php 
-          $id = $_GET['id'];
-          $query3 = "SELECT * FROM session WHERE doc_NIC = '$id'";
-          $result3 = mysqli_query($conn,$query3);
-
-          while($rows = mysqli_fetch_assoc($result3))
+          $sid = $_GET['sid'];
+          $query4 = "SELECT * FROM appointment WHERE session_ID = '$sid'";
+          $result4 = mysqli_query($conn,$query4);
+          $pname = "";
+          while($rows = mysqli_fetch_assoc($result4))
           {
-            
+            $phone = $rows['patient_Phone'];
+            $query5 = "SELECT * FROM patient WHERE patient_Phone = '$phone'";
+            $result5 = mysqli_query($conn,$query5);
+
+            while($rows2 = mysqli_fetch_assoc($result5))
+            {
+                $pname = $rows2['patient_Name'];
+            }
         ?>       
               
           
            <tbody>
-             <td><?php echo $rows['session_ID']; ?></td>
-             <td><?php echo $rows['session_Date']; ?></td>
-             <td><?php echo $rows['session_Time']; ?></td>
+             <td><?php echo $rows['app_No']; ?></td>
+             <td><?php echo $rows['ref_No']; ?></td>
+             <td><?php echo $pname; ?></td>
+             <td><?php echo $rows['patient_Phone']; ?></td>
            </tbody>
 
 

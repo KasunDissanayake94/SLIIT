@@ -68,7 +68,7 @@
     </script>
     <!----//End-top-nav-script---->
 
-    <script>
+   <!-- <script>
     function showResult(str) {
       if (str.length==0) { 
         //document.getElementById("livesearch").innerHTML="";
@@ -90,7 +90,7 @@
       xmlhttp.open("GET","livesearch.php?q="+str,true);
       xmlhttp.send();
     }
-    </script>
+    </script>-->
 
 
   </head>
@@ -159,7 +159,7 @@
               <div class="col-sm-6 col-sm-offset-3">
                   <div id="imaginary_container"> 
                       <div class="input-group stylish-input-group">
-                          <input type="text" class="form-control"  placeholder="Search" onkeyup="showResult(this.value)" name="search" id="search" >
+                          <input type="text" class="form-control"  placeholder="Search"   id="search" >
                           <span class="input-group-addon">
                               <button type="submit">
                                   <!--<i class="fa fa-search" aria-hidden="true"></i>-->
@@ -173,7 +173,7 @@
       
 
       <!--<div class="row">-->
-
+<div id="livesearch">
         <?php 
           $query1 = "SELECT * FROM doctor";
           $result1 = mysqli_query($conn,$query1);
@@ -181,7 +181,7 @@
           $count =0;
           while($rows = mysqli_fetch_assoc($result1))
           {
-            if($count==4)
+           /* if($count==4)
              {
                echo "</div>";
                echo "<br>";
@@ -191,13 +191,13 @@
              {
                echo "<div class='row'>";
              }
-             $count = $count+1;
+             $count = $count+1;*/
         ?>       
               
           
 
         
-        <div class="col-lg-3 col-sm-4 portfolio-item">
+        <div class="col-md-3 col-sm-6 "  style="margin-bottom: 20px;">
           <div class="card h-100">
             <?php 
             echo "<a href='sessions.php?id=".$rows['doc_NIC']."'>";
@@ -210,13 +210,14 @@
                 ?>
               <?php echo $rows['doc_Name']; ?></a>
               </h4>
-              <!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>-->
+          
               <p class="card-text"><?php echo $rows['doc_Spec']; ?></p>
             </div>
           </div>
         </div>
-
-        <?php } ?>
+        
+<?php } ?>
+       </div>
 
         <!--  
         <div class="col-lg-4 col-sm-6 portfolio-item">
@@ -275,11 +276,12 @@
           </div>
         </div>
       -->
-      </div>
+     
       <!-- /.row -->
 
       <!-- Pagination -->
-      <ul class="pagination justify-content-center">
+      <!--<ul class="pagination justify-content-center" style="position:absolute;
+   bottom:0;">
         <li class="page-item">
           <a class="page-link" href="#" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
@@ -301,7 +303,7 @@
             <span class="sr-only">Next</span>
           </a>
         </li>
-      </ul>
+      </ul>-->
     </div>
     <!-- /.container -->
  
@@ -321,8 +323,8 @@
   $(document).ready(function()
   {
     $('#search').keyup(function()
-      {
-        var txt = $(this).val();
+      { 
+        var txt = document.getElementById('search').value;
         var txt2 = "";
 
             $.ajax(
