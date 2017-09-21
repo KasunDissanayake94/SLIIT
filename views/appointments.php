@@ -97,8 +97,8 @@
     <!----- //End-header---->
 
     <!----- start-header---->
-      <div>
-          <div class="top-header">
+      
+          
             <div class="container">
               <div class="row">
                <div class="col-md-6">
@@ -115,8 +115,8 @@
             
             <div class="clearfix"> </div>
           </div>
-        </div>
-      </div>
+        
+      
     <!----- //End-header---->
 
     <!-- Page Content -->
