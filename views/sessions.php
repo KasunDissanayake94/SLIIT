@@ -85,7 +85,7 @@
             <!----start-top-nav---->
              <nav class="top-nav">
               <ul class="top-nav">
-                <li><a href="../index.php"  id="signout">Signout</a></li>
+                <li><a href="../index.php"  id="signout">Sign Out</a></li>
                 
               </ul>
               <a href="#" id="pull"><img src="../images/menu-icon.png" title="menu" /></a>
@@ -112,6 +112,7 @@
           $id = $_GET['id'];
           $query3 = "SELECT * FROM session WHERE doc_NIC = '$id'";
           $result3 = mysqli_query($conn,$query3);
+
 
           while($rows = mysqli_fetch_assoc($result3))
           {
