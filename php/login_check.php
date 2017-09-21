@@ -1,7 +1,8 @@
 <?php
 
 $pw=$_POST['password'];
-if($pw=='mediq'){
+$uname=$_POST['uname'];
+if($pw=='mediq'&& $uname=='nurse'){
 	header('Location:../views/doctorPage');
 }
 ?>

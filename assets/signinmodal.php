@@ -7,7 +7,10 @@
           </div>
           <div class="modal-body">
             <form method="post" action="php/login_check.php" name="login_form">
-            
+             <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Username" name="uname">
+        
+      </div>
              <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Password" name="password">
         

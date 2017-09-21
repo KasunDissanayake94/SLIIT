@@ -1280,11 +1280,12 @@ div.slide-text-info {
 	/*width: 600px;*/
 	
 }
-#signin{
+#signin,#signout{
 	background-color: #0083AC;
 	color: aliceblue;
 	border-radius: 10px;
 }
-#signin:hover{
+
+#signin,#signout:hover{
 	background-color: #00526C;
 }
