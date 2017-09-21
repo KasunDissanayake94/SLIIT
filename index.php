@@ -1,3 +1,17 @@
+
+<?php 
+ require 'php/dbcon.php';
+
+ $query="SELECT count(patient_Name) as c FROM patient";
+ $result1 = mysqli_query($conn,$query);
+
+ $query="SELECT count(doc_Name) as d FROM doctor";
+ $result2 = mysqli_query($conn,$query);
+
+ $query="SELECT count(session_ID) as e FROM session";
+ $result3 = mysqli_query($conn,$query);
+ ?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -193,7 +207,85 @@ require_once('assets/signinmodal.php');
 				</div>
 				
 			</div>
-			<!---- about ---->
+			<!---- Count ---->
+			<div id="about" class="about">
+				<div class="container">
+					<div class="header about-header text-center">
+						<h2>Live Status</h2>
+						
+					</div>
+					<!---- About-grids ---->
+					<div class="about-grids">						
+						<div class="col-md-4">
+							<label style="margin-left: 150px;"><font size="12">
+								<?php 
+									if($result2)
+									{
+									 while($row=mysqli_fetch_assoc($result1))
+									  {
+									        echo $row['c'];
+									  }     
+
+									}
+									 ?>
+							</font></label>	
+							<div class="about-grid n-about-grid n-about-grid1">
+													
+								<div class="about-grid-info text-center">
+									<h3 style="color:white;">Patients</h3>
+									
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label style="margin-left: 150px;"><font size="12">
+								<?php 
+									if($result2)
+									{
+									 while($row=mysqli_fetch_assoc($result2))
+									  {
+									        echo $row['d'];
+									  }     
+
+									}
+									 ?>
+							</font></label>	
+							<div class="about-grid n-about-grid n-about-grid1">								
+								
+								<div class="about-grid-info text-center">
+									<h3 style="color:white;">Doctors</h3>
+									
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label style="margin-left: 150px;"><font size="12" align="center">
+								<?php 
+									if($result2)
+									{
+									 while($row=mysqli_fetch_assoc($result3))
+									  {
+									        echo $row['e'];
+									  }     
+
+									}
+									 ?>
+							</font></label>	
+							<div class="about-grid n-about-grid n-about-grid2">
+
+								<div class="about-grid-info text-center">
+
+									<h3 style="color:white;">Sessions</h3>
+									
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<!---- Conact-grids ---->
+				</div>
+				
+			</div>
 			
 		
 			<!---- contact ---->

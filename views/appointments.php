@@ -103,11 +103,12 @@
               <div class="row">
                <div class="col-md-6">
                <button class="btn btn-primary pull-right" onClick="nextPatient();" style="margin-left: 10px;margin-top: 30px;">Next Number</button>
-               <button class="btn btn-warning pull-right" style="margin-top: 30px; width: 140px" id="pausebtn">Pause Session</button></div>
+               <button class="btn btn-warning pull-right" style="margin-top: 30px; width: 140px" id="pausebtn">Pause Session</button>
+               <button class="btn btn-success pull-right" id="start" style="margin-right: 10px;margin-top: 30px;">Start Session</button></div>
                 <div class="col-md-4">
                   
                   <div style="border: 2px solid red;outline: green thick;height: 100px; width: 150px;"><center>Current Number</center>
-                  <center><label id="count" style="font-size: 40px;">1</label></center></div>
+                  <center><label id="count" style="font-size: 40px;">0</label></center></div>
                 
                 </div>
               </div>
@@ -182,7 +183,7 @@
 
 
 <script>
-	document.getElementById('tablecontainer').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].className +="backgreen";
+	
   $(document).ready(function()
   {
     $('#search').keyup(function()
@@ -247,6 +248,11 @@
             cache: false,
         });
 	}
+	$('#start').click(function(){
+		$('#count').html(1);
+		$(this).attr("disabled", "disabled");
+		document.getElementById('tablecontainer').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].className +="backgreen";
+	});
 	 
 	$("#pausebtn").click(function(){
 		
