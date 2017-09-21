@@ -159,7 +159,7 @@
               <div class="col-sm-6 col-sm-offset-3">
                   <div id="imaginary_container"> 
                       <div class="input-group stylish-input-group">
-                          <input type="text" class="form-control"  placeholder="Search" onkeyup="showResult(this.value)" name="search" id="search" >
+                          <input type="text" class="form-control"  placeholder="Search" name="search" id="search" >
                           <span class="input-group-addon">
                               <button type="submit">
                                   <!--<i class="fa fa-search" aria-hidden="true"></i>-->
@@ -172,43 +172,25 @@
         </div>
       
 
-      <!--<div class="row">-->
+      <div class="row" id="livesearch">
 
         <?php 
           $query1 = "SELECT * FROM doctor";
           $result1 = mysqli_query($conn,$query1);
 
-          $count =0;
           while($rows = mysqli_fetch_assoc($result1))
           {
-            if($count==4)
-             {
-               echo "</div>";
-               echo "<br>";
-               $count = 0;
-             }
-             if($count == 0)
-             {
-               echo "<div class='row'>";
-             }
-             $count = $count+1;
         ?>       
               
           
 
         
-        <div class="col-lg-3 col-sm-4 portfolio-item">
+        <div class="col-lg-4 col-sm-6 portfolio-item" id = "livesearch2">
           <div class="card h-100">
-            <?php 
-            echo "<a href='sessions.php?id=".$rows['doc_NIC']."'>";
-            ?>
-            <img class="card-img-top" src=<?php echo $rows['imageLink']; ?> alt=""></a>
+            <a href="#"><img class="card-img-top" src=<?php echo $rows['imageLink']; ?> alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <?php 
-                echo "<a href='sessions.php?id=".$rows['doc_NIC']."'>";
-                ?>
-              <?php echo $rows['doc_Name']; ?></a>
+                <a href="#"><?php echo $rows['doc_Name']; ?></a>
               </h4>
               <!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>-->
               <p class="card-text"><?php echo $rows['doc_Spec']; ?></p>
@@ -325,6 +307,8 @@
         var txt = $(this).val();
         var txt2 = "";
 
+        if(txt != "")
+        {
             $.ajax(
               {
                 url:"fetch.php",
@@ -333,9 +317,14 @@
                 dataType:"text",
                 success:function(data)
                 {
-                  $('#livesearch').html(data);
+                  $('#livesearch2').html(data);
                 }
               });
+        }
+        else
+        {
+          $('#livesearch').html('');
+        }
         
       });
   });
