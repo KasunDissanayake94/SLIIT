@@ -1,13 +1,10 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<?php
+require_once('php/dbcon.php');
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Doctor Website Template | Home :: w3layouts</title>
+		<title>MediQ-Home</title>
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -52,30 +49,78 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		</script>
 		<!----//End-top-nav-script---->
+		<script>
+			 function showsignin(){
+				 $('#loginModal').modal('show');
+			 }
+	</script>
 	</head>
 	<body>
+	<?php
+require_once('php/dbcon.php');
+//require_once('assets/signinmodal.php');
+?>
+<div class="modal fade" id="loginModal">
+         <div class="modal-dialog">
+         <div class="modal-content">   
+    <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 style="color: black;font-style: italic;font-weight:500"><img  src="images/skmlogo.jpg" id="loginicon"> Login</h3>
+          </div>
+          <div class="modal-body">
+            <form method="post" action="php/user.php" name="login_form">
+             <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="UserName" name="euname" id="username" required>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+             <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Password" name="password">
+        <span class="glyphicon glyphicon-lock form-control-feedback" name="passwd" required></span>
+      </div>
+              
+              
+              <p><button type="submit" class="btn btn-primary">Sign in</button>
+                <a  style="color: black;font-style: italic;font-weight:500" href="#">Forgot Password?</a>
+              </p>
+            </form>
+          </div>
+          <div class="modal-footer">
+                <button type="button" class="btn btn-warning pull-right" data-dismiss="modal">Close</button>
+                
+              </div>
+			 </div>
+	  </div>
+	  </div>	
 		<!----- start-header---->
 			<div id="home" class="header">
-					<div class="top-header">
+					<div class="top-header" >
+					
 						<div class="container">
 						<div class="logo">
-							<a href="#"><img src="images/logo.png" title="doctor" /></a>
+							<a href="#"><img src="images/logo.png" id="logo" /></a>
 						</div>
 						<!----start-top-nav---->
 						 <nav class="top-nav">
 							<ul class="top-nav">
 								<li class="active"><a href="#home" class="scroll">Home </a></li>
 								<li><a href="#about" class="scroll">About us</a></li>
-								<li><a href="#services" class="scroll">our services</a></li>
-								<li><a href="#team" class="scroll">our team</a></li>
+						
 								<li><a href="#contact" class="scroll">Contact</a></li>
+								<li><a href="" onClick="showsignin();" class="scroll" id="signin">Signin</a></li>
+								
 							</ul>
-							<a href="#" id="pull"><img src="images/menu-icon.png" title="menu" /></a>
+							<a href="#" id="pull" class="pull-right"><img src="images/menu-icon.png" title="menu" /></a>
+							
+							
 						</nav>
+						
 						<div class="clearfix"> </div>
+						 
 					</div>
+					
 				</div>
 			</div>
+			
 		<!----- //End-header---->
 		<!----start-slider-script---->
 			<script src="js/responsiveslides.min.js"></script>
@@ -183,101 +228,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				
 			</div>
 			<!---- about ---->
-			<!--- services --->
-			<div id="services" class="services">
-				<div class="container">
-					<div class="header services-header text-center">
-						<h2>our services</h2>
-						<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-					</div>
-					<!---- service-grids--->
-					<div class="service-grids">
-						<div class="col-md-3">
-							<div class="service-grid text-center">
-								<a href="#"><span class="s1-icon"> </span></a>
-								<h3><a href="#">Heart problem</a></h3>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="service-grid text-center">
-								<a href="#"><span class="s2-icon"> </span></a>
-								<h3><a href="#">brain problem</a></h3>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="service-grid text-center">
-								<a href="#"><span class="s3-icon"> </span></a>
-								<h3><a href="#">knee problem</a></h3>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="service-grid text-center">
-								<a href="#"><span class="s4-icon"> </span></a>
-								<h3><a href="#">human bones problem</a></h3>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<!----//service-grids--->
-				</div>
-				
-			</div>
-			<!--- services --->
-			<!--- team --->
-			<div id="team" class="team">
-				<div class="container">
-					<div class="header team-head text-center">
-						<h2>our team</h2>
-						<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
-					</div>
-					<!--- teammember-grids ---->
-					<div class="team-member-grids">
-						<div class="team-member-grid">
-							<img src="images/t1.jpg" title="name" />
-							<div class="team-member-info bottom-t-info">
-								<span> </span>
-								<h3><a href="#">Dr. Keith M. Weiner, M.D.</a></h3>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type Lorem Ipsum is simply dummy text.is simply dummy text..is simply dummy text.</p>
-							</div>
-						</div>
-						<div class="team-member-grid">
-							<div class="team-member-info bottom-t-info bottom-t-info-b">
-								<span> </span>
-								<h3><a href="#">Dr. Danielle, M.D.</a></h3>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type Lorem Ipsum is simply dummy text.is simply dummy text..is simply dummy text..is simply dummy text.</p>
-							</div>
-							<img src="images/t2.jpg" title="name" />
-						</div>
-						<div class="team-member-grid">
-							<img src="images/t3.jpg" title="name" />
-							<div class="team-member-info bottom-t-info">
-								<span> </span>
-								<h3><a href="#">Dr. Joseph, M.D.</a></h3>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type Lorem Ipsum is simply dummy text.is simply dummy text..is simply dummy text.</p>
-							</div>
-						</div>
-						<div class="team-member-grid">
-							<div class="team-member-info bottom-t-info bottom-t-info-b">
-								<span> </span>
-								<h3><a href="#">Dr. Caitlin, M.D.</a></h3>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type Lorem Ipsum is simply dummy text.is simply dummy text..is simply dummy text..is simply dummy text.</p>
-							</div>
-							<img src="images/t4.jpg" title="name" />
-						</div>
-						<div class="team-member-grid">
-							<img src="images/t5.jpg" title="name" />
-							<div class="team-member-info bottom-t-info">
-								<span> </span>
-								<h3><a href="#">Dr. Michael, M.D.</a></h3>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type Lorem Ipsum is simply dummy text.is simply dummy text..is simply dummy text.</p>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<!---//teammember-grids ---->
-				</div>
-			</div>
-			<!--- team --->
+			
+		
 			<!---- contact ---->
 			<div id="contact" class="contact">
 				<div class="map">
