@@ -1,10 +1,8 @@
-<?php
-require_once('php/dbcon.php');
-?>
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<title>MediQ-Home</title>
+		
 		<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery-1.11.3.min.js"></script>
@@ -55,7 +53,6 @@ require_once('php/dbcon.php');
 	</head>
 	<body>
 	<?php
-require_once('php/dbcon.php');
 require_once('assets/signinmodal.php');
 ?>
 	
