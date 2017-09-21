@@ -102,8 +102,8 @@
             <div class="container">
               <div class="row">
                <div class="col-md-6">
-               	<button class="btn btn-primary pull-right" onClick="nextPatient();" style="margin-left: 10px;margin-top: 30px;">Next Number</button>
-               <button class="btn btn-warning pull-right" style="margin-top: 30px; width: 130px;" id="pausebtn">Pause Session</button></div>
+               <button class="btn btn-primary pull-right" onClick="nextPatient();" style="margin-left: 10px;margin-top: 30px;">Next Number</button>
+               <button class="btn btn-warning pull-right" style="margin-top: 30px;" onClick="pause();" id="pausebtn">Pause Session</button></div>
                 <div class="col-md-4">
                   
                   <div style="border: 2px solid red;outline: green thick;height: 100px; width: 150px;"><center>Current Number</center>
@@ -218,17 +218,7 @@
 		var n = currentno.toString();
 		$('#count').html(n);
 	}
-	$("#pausebtn").click(function(){
-		
-		if(document.getElementById('pausebtn').innerHTML=="Pause Session")
-		{document.getElementById('pausebtn').innerHTML="Resume session";
-		$(this).removeClass("btn-warning");
-		$(this).addClass('btn-success');
-		}
-		else{
-			document.getElementById('pausebtn').innerHTML="Pause Session";
-			$(this).removeClass("btn-success");
-		$(this).addClass('btn-warning');
-		}
-	});
+	function pause(){
+		document.getElementById('pausebtn').innerHTML="Resume session";
+	}
 </script>
