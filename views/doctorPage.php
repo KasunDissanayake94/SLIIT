@@ -14,6 +14,9 @@
 
     <title>3 Col Portfolio - Start Bootstrap Template</title>
 
+    <script src="../fonts/font-awesome.min.css" rel='stylesheet' type='text/css'></script>
+
+    <link href="../css/searchBar.css" rel='stylesheet' type='text/css' />
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -64,6 +67,31 @@
       });
     </script>
     <!----//End-top-nav-script---->
+
+    <script>
+    function showResult(str) {
+      if (str.length==0) { 
+        //document.getElementById("livesearch").innerHTML="";
+        //document.getElementById("livesearch").style.border="0px";
+        return;
+      }
+      if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+      } else {  // code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange=function() {
+        if (this.readyState==4 && this.status==200) {
+          document.getElementById("livesearch").innerHTML=this.responseText;
+          document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+        }
+      }
+      xmlhttp.open("GET","livesearch.php?q="+str,true);
+      xmlhttp.send();
+    }
+    </script>
+
 
   </head>
 
@@ -129,6 +157,24 @@
         <small>Secondary Text</small>
       </h1>
 
+      
+        <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                  <div id="imaginary_container"> 
+                      <div class="input-group stylish-input-group">
+                          <input type="text" class="form-control"  placeholder="Search" onkeyup="showResult(this.value)" >
+                          <span class="input-group-addon">
+                              <button type="submit">
+                                  <!--<i class="fa fa-search" aria-hidden="true"></i>-->
+                                  <span class="glyphicon glyphicon-search"></span>
+                              </button>  
+                          </span>
+                      </div>
+                  </div>
+              </div>
+        </div>
+      
+
       <div class="row">
 
         <?php 
@@ -142,14 +188,15 @@
           
 
         
-        <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="col-lg-4 col-sm-6 portfolio-item" id="livesearch">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src=<?php echo $rows['imageLink']; ?> alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Project One</a>
+                <a href="#"><?php echo $rows['doc_Name']; ?></a>
               </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+              <!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>-->
+              <p class="card-text"><?php echo $rows['doc_Spec']; ?></p>
             </div>
           </div>
         </div>
