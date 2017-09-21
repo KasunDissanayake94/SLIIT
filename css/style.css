@@ -1272,3 +1272,19 @@ div.slide-text-info {
 		padding: 1em 0 0.5em;
 	}
 }
+#logo{
+	width: 250px;
+	height: 70px;
+}
+.top-nav{
+	/*width: 600px;*/
+	
+}
+#signin{
+	background-color: #00ACA4;
+	color: aliceblue;
+	border-radius: 10px;
+}
+#signin:hover{
+	background-color: #005C58;
+}
