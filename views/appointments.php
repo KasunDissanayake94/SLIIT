@@ -102,7 +102,7 @@
             <div class="container">
               <div class="row">
                <div class="col-md-6">
-               	<button class="btn btn-primary pull-right" onClick="nextPatient();" style="margin-left: 10px;margin-top: 30px;">Next Number</button>
+               <button class="btn btn-primary pull-right" onClick="nextPatient();" style="margin-left: 10px;margin-top: 30px;">Next Number</button>
                <button class="btn btn-warning pull-right" style="margin-top: 30px;" onClick="pause();" id="pausebtn">Pause Session</button></div>
                 <div class="col-md-4">
                   
@@ -204,10 +204,17 @@
   });
 	function nextPatient(){
 		
+
 		var currentno=document.getElementById('count').textContent;
 		
 		currentno++;
-		
+    var num = currentno.toString();
+    var loc = "increment.php?id=";
+    var loc2 = "<?php echo $_GET['sid']; ?>&no=";
+    loc2 = loc2.concat(num);
+    loc = loc.concat(loc2);
+		window.location=loc;
+
 		var n = currentno.toString();
 		$('#count').html(n);
 	}
