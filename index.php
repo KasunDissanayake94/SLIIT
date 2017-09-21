@@ -14,7 +14,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</script>
-		 <!---- start-smoth-scrolling---->
+
+            <!---- start-smoth-scrolling---->
 		<script type="text/javascript" src="js/move-top.js"></script>
 		<script type="text/javascript" src="js/easing.js"></script>
 		<script type="text/javascript">
@@ -62,7 +63,7 @@ require_once('assets/signinmodal.php');
 					
 						<div class="container">
 						<div class="logo">
-							<a href="#"><img src="images/logo.png" id="logo" /></a>
+							<a href="#"><img style="width: 220px;height: 75px;" src="images/logo.png" id="logo"/></a>
 						</div>
 						<!----start-top-nav---->
 						 <nav class="top-nav">
@@ -71,7 +72,7 @@ require_once('assets/signinmodal.php');
 								<li><a href="#about" class="scroll">About us</a></li>
 						
 								<li><a href="#contact" class="scroll">Contact</a></li>
-								<li><a href="" onClick="showsignin();" class="scroll" id="signin">Signin</a></li>
+								<li><a href="" onClick="showsignin();" class="scroll" id="signin">Sign In</a></li>
 								
 							</ul>
 							<a href="#" id="pull" class="pull-right"><img src="images/menu-icon.png" title="menu" /></a>
