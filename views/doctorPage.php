@@ -14,7 +14,9 @@
 
     <title>3 Col Portfolio - Start Bootstrap Template</title>
 
-     <link href="../css/searchBar.css" rel='stylesheet' type='text/css' />
+    <script src="../fonts/font-awesome.min.css" rel='stylesheet' type='text/css'></script>
+
+    <link href="../css/searchBar.css" rel='stylesheet' type='text/css' />
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -65,6 +67,31 @@
       });
     </script>
     <!----//End-top-nav-script---->
+
+    <script>
+    function showResult(str) {
+      if (str.length==0) { 
+        //document.getElementById("livesearch").innerHTML="";
+        //document.getElementById("livesearch").style.border="0px";
+        return;
+      }
+      if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+      } else {  // code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange=function() {
+        if (this.readyState==4 && this.status==200) {
+          document.getElementById("livesearch").innerHTML=this.responseText;
+          document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+        }
+      }
+      xmlhttp.open("GET","livesearch.php?q="+str,true);
+      xmlhttp.send();
+    }
+    </script>
+
 
   </head>
 
@@ -135,9 +162,10 @@
               <div class="col-sm-6 col-sm-offset-3">
                   <div id="imaginary_container"> 
                       <div class="input-group stylish-input-group">
-                          <input type="text" class="form-control"  placeholder="Search" >
+                          <input type="text" class="form-control"  placeholder="Search" onkeyup="showResult(this.value)" >
                           <span class="input-group-addon">
                               <button type="submit">
+                                  <!--<i class="fa fa-search" aria-hidden="true"></i>-->
                                   <span class="glyphicon glyphicon-search"></span>
                               </button>  
                           </span>
@@ -160,7 +188,7 @@
           
 
         
-        <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="col-lg-4 col-sm-6 portfolio-item" id="livesearch">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src=<?php echo $rows['imageLink']; ?> alt=""></a>
             <div class="card-body">
