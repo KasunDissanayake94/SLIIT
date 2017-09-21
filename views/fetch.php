@@ -25,22 +25,28 @@
 	              
 	          
 
-	        
-	        echo "<div class='card h-100'>";
-	        echo "<a href='#'><img class='card-img-top' src=".$rows['imageLink']." alt=''></a>
-	            <div class='card-body'>
-	              <h4 class='card-title'>
-	                <a href='#'>".$rows['doc_Name']."</a>
-	              </h4>";
-
-	              /*<!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>-->
-	              <p class="card-text"><?php echo $rows['doc_Spec']; ?></p>*/
-	            echo "</div>
-	          </div>";
+	       echo" <div class=\"col-md-3 col-sm-6 \"  style=\"margin-bottom: 20px;\">
+          <div class=\"card h-100\">
+             
+             <a href='sessions.php?id=".$rows['doc_NIC']."'>
+          
+            <img class=\"card-img-top\" src=".$rows['imageLink']. "></a>
+            <div class=\"card-body\">
+              <h4 class=\"card-title\">
+                
+                 <a href='sessions.php?id=".$rows['doc_NIC']."'>"
+                
+              . $rows['doc_Name']."</a>
+              </h4>
+          
+              <p class=\"card-text\">".$rows['doc_Spec']."</p>
+            </div>
+          </div>
+        </div>";
 			} 
 		}
 		else
 		{
-			echo "Data Not Found";
+			echo "No doctors found";
 		}
 ?>
