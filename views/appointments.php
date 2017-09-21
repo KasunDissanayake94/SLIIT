@@ -79,6 +79,27 @@
       <div id="home" class="header">
           <div class="top-header">
             <div class="container">
+            <div class="logo">
+              <a href="#"><img src="../images/logo.png" id="logo" style="width: 220px;height: 75px;" title="doctor" /></a>
+            </div>
+            <!----start-top-nav---->
+             <nav class="top-nav">
+              <ul class="top-nav">
+                <li><a href="../index.php"  id="signout">Sign Out</a></li>
+                
+              </ul>
+              <a href="#" id="pull"><img src="../images/menu-icon.png" title="menu" /></a>
+            </nav>
+            <div class="clearfix"> </div>
+          </div>
+        </div>
+      </div>
+    <!----- //End-header---->
+
+    <!----- start-header---->
+      <div>
+          <div class="top-header">
+            <div class="container">
               <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                   <center>
